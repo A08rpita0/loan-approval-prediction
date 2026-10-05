@@ -1,0 +1,199 @@
+{
+  "chosen_model": "hist_gradient_boosting",
+  "feature_set": "summed_assets_ratios",
+  "selection": {
+    "metric": "cv_roc_auc",
+    "tie_tolerance": 0.001,
+    "rule": "simplest candidate within tie_tolerance of the best mean CV score"
+  },
+  "decision_threshold": 0.5,
+  "input_columns": [
+    "no_of_dependents",
+    "education",
+    "self_employed",
+    "income_annum",
+    "loan_amount",
+    "loan_term",
+    "cibil_score",
+    "residential_assets_value",
+    "commercial_assets_value",
+    "luxury_assets_value",
+    "bank_asset_value"
+  ],
+  "model_features": [
+    "education_Not Graduate",
+    "self_employed_Yes",
+    "no_of_dependents",
+    "income_annum",
+    "loan_amount",
+    "loan_term",
+    "cibil_score",
+    "total_assets",
+    "loan_to_income",
+    "loan_to_assets"
+  ],
+  "cv": {
+    "folds": 5,
+    "results": {
+      "logistic_regression/summed_assets": {
+        "roc_auc_mean": 0.9666228910168719,
+        "roc_auc_std": 0.0082403401432967,
+        "f1_mean": 0.9311805873386177,
+        "f1_std": 0.012891443001503992,
+        "accuracy_mean": 0.9142020497803808,
+        "accuracy_std": 0.01631961908414968,
+        "average_precision_mean": 0.9785798831609289,
+        "average_precision_std": 0.006067062155545705
+      },
+      "logistic_regression/separate_assets": {
+        "roc_auc_mean": 0.9663310533515732,
+        "roc_auc_std": 0.0082491368948489,
+        "f1_mean": 0.9312728981087129,
+        "f1_std": 0.012880616032387007,
+        "accuracy_mean": 0.9142020497803806,
+        "accuracy_std": 0.01631961908414968,
+        "average_precision_mean": 0.9784898820527248,
+        "average_precision_std": 0.00601993646749602
+      },
+      "logistic_regression/summed_assets_ratios": {
+        "roc_auc_mean": 0.9678030095759235,
+        "roc_auc_std": 0.009346273874584468,
+        "f1_mean": 0.9257295472150844,
+        "f1_std": 0.016447244579387097,
+        "accuracy_mean": 0.9074670571010248,
+        "accuracy_std": 0.020105000168400427,
+        "average_precision_mean": 0.9810181197688184,
+        "average_precision_std": 0.00484158305763459
+      },
+      "hist_gradient_boosting/summed_assets": {
+        "roc_auc_mean": 0.9967277701778385,
+        "roc_auc_std": 0.0024246344439302187,
+        "f1_mean": 0.9868679124991886,
+        "f1_std": 0.0015912898302364066,
+        "accuracy_mean": 0.983601756954612,
+        "accuracy_std": 0.0019423864072359589,
+        "average_precision_mean": 0.997473029250233,
+        "average_precision_std": 0.002165400639855695
+      },
+      "hist_gradient_boosting/separate_assets": {
+        "roc_auc_mean": 0.9979078887368902,
+        "roc_auc_std": 0.001356738659868419,
+        "f1_mean": 0.9885058376447535,
+        "f1_std": 0.003210131946287131,
+        "accuracy_mean": 0.9856515373352857,
+        "accuracy_std": 0.003972081981332503,
+        "average_precision_mean": 0.9985943722024248,
+        "average_precision_std": 0.0010141632755207067
+      },
+      "hist_gradient_boosting/summed_assets_ratios": {
+        "roc_auc_mean": 0.9999051527587779,
+        "roc_auc_std": 0.00010487519570609836,
+        "f1_mean": 0.9962485242538485,
+        "f1_std": 0.0023878712870866016,
+        "accuracy_mean": 0.9953147877013178,
+        "accuracy_std": 0.0029862486170382256,
+        "average_precision_mean": 0.9999423344668175,
+        "average_precision_std": 6.388221022037185e-05
+      }
+    }
+  },
+  "test": {
+    "accuracy": 0.9964871194379391,
+    "precision": 0.9962406015037594,
+    "recall": 0.9981167608286252,
+    "f1": 0.9971777986829727,
+    "roc_auc": 0.9999650172290147,
+    "pr_auc": 0.9999788858806397,
+    "confusion_matrix": {
+      "tn": 321,
+      "fp": 2,
+      "fn": 1,
+      "tp": 530
+    },
+    "classification_report": {
+      "Rejected": {
+        "precision": 0.9968944099378882,
+        "recall": 0.9938080495356038,
+        "f1-score": 0.9953488372093023,
+        "support": 323.0
+      },
+      "Approved": {
+        "precision": 0.9962406015037594,
+        "recall": 0.9981167608286252,
+        "f1-score": 0.9971777986829727,
+        "support": 531.0
+      },
+      "accuracy": 0.9964871194379391,
+      "macro avg": {
+        "precision": 0.9965675057208239,
+        "recall": 0.9959624051821145,
+        "f1-score": 0.9962633179461375,
+        "support": 854.0
+      },
+      "weighted avg": {
+        "precision": 0.9964878850215856,
+        "recall": 0.9964871194379391,
+        "f1-score": 0.9964860486174042,
+        "support": 854.0
+      }
+    }
+  },
+  "permutation_importance_test_roc_auc": {
+    "cibil_score": {
+      "mean": 0.46355057634115193,
+      "std": 0.01130285648064605
+    },
+    "loan_term": {
+      "mean": 0.022686910030143437,
+      "std": 0.001792421756913936
+    },
+    "loan_amount": {
+      "mean": 0.02248109472751326,
+      "std": 0.002354991378939632
+    },
+    "income_annum": {
+      "mean": 0.009831907785415617,
+      "std": 0.0011946815475920476
+    },
+    "luxury_assets_value": {
+      "mean": 0.0033595121069539325,
+      "std": 0.0006934662182365788
+    },
+    "residential_assets_value": {
+      "mean": 0.002391072396844507,
+      "std": 0.0005972422413282974
+    },
+    "commercial_assets_value": {
+      "mean": 0.0022062467568055412,
+      "std": 0.0011111465256230019
+    },
+    "bank_asset_value": {
+      "mean": 0.0019677808679224975,
+      "std": 0.0008280744076235914
+    },
+    "no_of_dependents": {
+      "mean": 1.1660923660783419e-06,
+      "std": 4.3631181155686305e-06
+    },
+    "self_employed": {
+      "mean": -5.551115123125783e-17,
+      "std": 5.551115123125783e-17
+    },
+    "education": {
+      "mean": -8.881784197001253e-17,
+      "std": 4.4408920985006264e-17
+    }
+  },
+  "data": {
+    "path": "loan_approval_dataset.csv",
+    "sha256": "4b5cd093d178378f4cfa8c107adb6e599b88be9d8a3b51f3b99c0d5914154e54",
+    "n_rows": 4269,
+    "n_train": 3415,
+    "n_test": 854,
+    "approved_rate": 0.622159756383228,
+    "sampled": false
+  },
+  "random_seed": 42,
+  "sklearn_version": "1.9.1",
+  "trained_at": "2026-10-04T12:48:15+00:00"
+}
